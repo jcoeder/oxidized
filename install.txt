@@ -1,0 +1,35 @@
+Oxidized Install
+
+yum install cmake sqlite-devel openssl-devel libssh2-devel ruby gcc ruby-devel -y
+yum install libicu -y
+yum install libicu-devel -y
+yum groupinstall 'Development Tools'
+sudo yum install curl gpg gcc gcc-c++ make patch autoconf automake bison libffi-devel libtool patch readline-devel sqlite-devel zlib-devel openssl-devel
+sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable
+usermod -a -G rvm root
+logout
+rvm install 2.5.1
+rvm use 2.5.1 --default
+
+
+
+
+
+
+sudo yum -y install cmake sqlite-devel openssl-devel libssh2-devel ruby gcc ruby-devel
+yum install libicu-devel -y
+yum install gcc-c++ -y
+
+gem install "rubygems-update:<3.0.0" --no-document
+update_rubygems
+gem install rb-inotify -v 0.9.10
+
+sudo gem install oxidized
+sudo gem install oxidized-script oxidized-web
+
+yum install -y make cmake which sqlite-devel openssl-devel libssh2-devel ruby gcc ruby-devel libicu-devel gcc-c++
+
+sudo cp /usr/local/share/gems/gems/oxidized-X.XX.X/extra/oxidized.service /lib/systemd/system/
+sudo systemctl enable oxidized.service
+sudo systemctl start oxidized
